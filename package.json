@@ -2,7 +2,29 @@
   "name": "dsh-session-pause",
   "description": "Host-wide and per-session pause of model activity, including subagents and goals, with Web pause buttons and status surfaces, for DeepSeek Harness",
   "version": "0.3.0",
-  "private": true,
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "cordis",
+    "cordis-plugin",
+    "pause",
+    "resume",
+    "session",
+    "subagent",
+    "goal",
+    "agent"
+  ],
+  "author": "chilingling",
+  "homepage": "https://github.com/chilingling/dsh-session-pause#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chilingling/dsh-session-pause.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chilingling/dsh-session-pause/issues"
+  },
   "type": "module",
   "main": "lib/host/index.js",
   "types": "lib/host/index.d.ts",
@@ -49,14 +71,14 @@
       "platform": "web"
     }
   },
-  "packageManager": "pnpm@10.34.5",
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
   },
   "scripts": {
     "build": "rm -rf lib && tsc -p tsconfig.host.json && tsdown",
     "typecheck": "tsc -p tsconfig.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "pnpm run build"
   },
   "license": "MIT",
   "dependencies": {
