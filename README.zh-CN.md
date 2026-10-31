@@ -8,12 +8,24 @@ DeepSeek Harness 的暂停插件。用一次点击或一条命令暂停模型活
 
 ## 安装
 
+从 GitHub 安装发布版本：
+
+```sh
+dsh plugin --profile web add github:chilingling/dsh-session-pause#v0.3.0
+```
+
+安装时，pnpm 通过 `prepare` 脚本构建插件。pnpm 默认会拦截这个脚本，因此第一次安装会失败。按 pnpm 打印的提示，把它给出的 key 加入 profile 目录下 `pnpm-workspace.yaml` 的 `allowBuilds`，然后重新执行命令。也可以在 Web 的**插件**页面点击**允许这些脚本并重试**。
+
+从本地仓库开发：
+
 ```sh
 pnpm install && pnpm build
 pnpm dsh plugin --profile web add /path/to/dsh-session-pause   # 在 deepseek-harness 仓库中执行
 ```
 
-`dsh plugin add` 会链接本仓库，并把 bundle 加入 profile。bundle 的 patch 文件 [`cordis.patch.yml`](cordis.patch.yml) 负责挂载插件，并把状态文件放在 `$DSH_HOME/session-pause.json`。修改代码后，需要重新构建并重启该 profile。
+`dsh plugin add` 会链接本仓库，并把 bundle 加入 profile。修改代码后，需要重新构建并重启该 profile。
+
+两种方式都由 bundle 的 patch 文件 [`cordis.patch.yml`](cordis.patch.yml) 挂载插件，并把状态文件放在 `$DSH_HOME/session-pause.json`。
 
 ## Web 客户端
 

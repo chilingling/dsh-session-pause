@@ -6,12 +6,24 @@ A DeepSeek Harness bundle that pauses model activity with one click or command â
 
 ## Install
 
+Install a release from GitHub:
+
+```sh
+dsh plugin --profile web add github:chilingling/dsh-session-pause#v0.3.0
+```
+
+pnpm builds the plugin through its `prepare` script during installation, and blocks that script until it is allowed. On the first attempt, add the key pnpm prints under `allowBuilds` in the profile's `pnpm-workspace.yaml` and run the command again; the Web **Plugins** page offers **Allow these scripts and retry** instead.
+
+To develop from a local checkout:
+
 ```sh
 pnpm install && pnpm build
 pnpm dsh plugin --profile web add /path/to/dsh-session-pause   # from a deepseek-harness checkout
 ```
 
-`dsh plugin add` links the checkout and appends the bundle to the profile, whose patch [`cordis.patch.yml`](cordis.patch.yml) mounts the plugin with its state file at `$DSH_HOME/session-pause.json`. After code changes, rebuild and restart the profile.
+`dsh plugin add` links the checkout and appends the bundle to the profile. After code changes, rebuild and restart the profile.
+
+Either way, the bundle's patch [`cordis.patch.yml`](cordis.patch.yml) mounts the plugin with its state file at `$DSH_HOME/session-pause.json`.
 
 ## Web client
 
