@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2024", "ESNext.Disposable"],
+    "noEmit": false,
+    "declaration": true,
+    "sourceMap": true,
+    "rootDir": "src/host",
+    "outDir": "lib/host"
+  },
+  "include": ["src/host"]
+}

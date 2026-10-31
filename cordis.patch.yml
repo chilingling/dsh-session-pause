@@ -1,0 +1,8 @@
+# Bundle layer of dsh-session-pause: mounts the host-wide and Session pauses with
+# their state file in the Harness home, so a pause survives a host restart. Override the
+# path with an `- id: session-pause` profile patch row.
+- insert:
+    - id: session-pause
+      name: dsh-session-pause
+      config:
+        stateFile: !!js "(process.env.DSH_HOME || process.env.HOME + '/.dsh') + '/session-pause.json'"

@@ -1,0 +1,267 @@
+/* Footer action: the same box as the sidebar Settings trigger in both widths. */
+.row {
+  display: flex;
+  width: calc(100% + 4px);
+  margin: 4px -2px 0;
+}
+
+.row.rail {
+  width: 36px;
+  margin: 8px 0 0;
+}
+
+.trigger {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  margin: 0;
+  padding: 0 10px 0 8px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: var(--dsw-radius-md);
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  color: var(--dsw-alias-label-primary);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.trigger.rail {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+}
+
+.trigger.paused {
+  color: var(--dsw-alias-state-warn-label);
+}
+
+.trigger:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+@media (hover: hover) {
+  .trigger:not(:disabled):hover {
+    background: var(--dsw-alias-interactive-bg-hover);
+  }
+}
+
+.label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Status pill: centered like the Toast primitive, but persistent and clickable,
+   and placed below the Session header row so it never covers header controls. */
+.pill {
+  position: fixed;
+  top: 84px;
+  left: 50%;
+  z-index: 1050;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: min(640px, calc(100vw - 32px));
+  padding: 6px 6px 6px 14px;
+  box-sizing: border-box;
+  border-radius: var(--dsw-radius-lg);
+  background: var(--dsw-alias-toast-bg);
+  color: var(--dsw-alias-toast-label);
+  font-size: 13px;
+  line-height: 20px;
+  box-shadow: var(--dsw-shadow-lv3);
+  transform: translateX(-50%);
+}
+
+.pillIcon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  color: var(--dsw-alias-state-warn-label);
+}
+
+.pillTitle {
+  flex: none;
+  font-weight: 600;
+}
+
+.pillMeta {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  opacity: 0.8;
+}
+
+.pillAction {
+  flex: none;
+  height: 28px;
+  padding: 0 12px;
+  border: none;
+  border-radius: var(--dsw-radius-md);
+  background: rgba(255, 255, 255, 0.16);
+  color: inherit;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.pillAction:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+@media (hover: hover) {
+  .pillAction:not(:disabled):hover {
+    background: rgba(255, 255, 255, 0.24);
+  }
+}
+
+.pillError {
+  color: var(--dsw-alias-state-warn-label);
+}
+
+/* Composer toolbar button: the box of the composer's own round icon controls. */
+.toolbarButton {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  cursor: pointer;
+}
+
+.toolbarButton.paused {
+  color: var(--dsw-alias-state-warn-label);
+}
+
+.toolbarButton:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+@media (hover: hover) {
+  .toolbarButton:not(:disabled):hover {
+    background: var(--dsw-alias-interactive-bg-hover);
+  }
+}
+
+/* Dock strip: the column and card of the other composer dock entries (todo, queue, goal). */
+.dock {
+  box-sizing: border-box;
+  width: calc(
+    100% -
+    var(--dsh-composer-side-clearance) -
+    var(--dsh-composer-side-clearance) -
+    var(--dsh-composer-dock-inset) -
+    var(--dsh-composer-dock-inset) -
+    var(--dsh-composer-dock-inset) -
+    var(--dsh-composer-dock-inset)
+  );
+  margin: 0 auto;
+}
+
+.dockBar {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: calc(var(--dsh-composer-card-max-width) - 4 * var(--dsh-composer-dock-inset));
+  height: 36px;
+  margin: 0 auto;
+  padding: 4px 5px 4px 12px;
+  --dsw-elevation-stroke-color: var(--dsw-alias-border-l1);
+  border-radius: var(--dsw-radius-md);
+  box-shadow: var(--dsw-elevation-panel);
+}
+
+.dockBar::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--dsw-specific-menu);
+  backdrop-filter: var(--dsw-menu-backdrop-filter);
+  content: '';
+  pointer-events: none;
+}
+
+.dockGlyph {
+  display: inline-flex;
+  flex: none;
+  color: var(--dsw-alias-state-warn-label);
+}
+
+.dockTitle {
+  flex: none;
+  font-size: 13px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--dsw-alias-label-primary);
+}
+
+.dockMeta {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--dsw-alias-label-primary-dimmed);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dockError {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--dsw-alias-state-error-primary);
+  font-size: 12px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dockAction {
+  flex: none;
+  height: 28px;
+  padding: 0 12px;
+  border: none;
+  border-radius: var(--dsw-radius-md);
+  background: var(--dsw-specific-selector);
+  color: var(--dsw-alias-label-primary);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.dockAction:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+@media (hover: hover) {
+  .dockAction:not(:disabled):hover {
+    background: var(--dsw-alias-interactive-bg-hover-solid);
+  }
+}
