@@ -1,7 +1,7 @@
 {
   "name": "dsh-session-pause",
   "description": "Host-wide and per-session pause of model activity, including subagents and goals, with Web pause buttons and status surfaces, for DeepSeek Harness",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "keywords": [
     "deepseek-harness",
     "dsh",

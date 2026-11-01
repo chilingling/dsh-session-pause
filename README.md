@@ -9,8 +9,10 @@ A DeepSeek Harness bundle that pauses model activity with one click or command â
 Install a release from GitHub:
 
 ```sh
-dsh plugin --profile web add github:chilingling/dsh-session-pause#v0.3.0
+dsh plugin --profile web add github:chilingling/dsh-session-pause#v0.4.0
 ```
+
+Version 0.4.0 requires DeepSeek Harness 0.2.2-alpha.2 or a later 0.2 release. For DeepSeek Harness 0.2.1 releases, install `#v0.3.0`.
 
 pnpm builds the plugin through its `prepare` script during installation, and blocks that script until it is allowed. On the first attempt, add the key pnpm prints under `allowBuilds` in the profile's `pnpm-workspace.yaml` and run the command again; the Web **Plugins** page offers **Allow these scripts and retry** instead.
 
