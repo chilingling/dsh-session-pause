@@ -18,7 +18,7 @@ dsh plugin --profile web add github:chilingling/dsh-session-pause#v0.4.0
 
 安装时，pnpm 通过 `prepare` 脚本构建插件。pnpm 默认会拦截这个脚本，因此第一次安装会失败。按 pnpm 打印的提示，把它给出的 key 加入 profile 目录下 `pnpm-workspace.yaml` 的 `allowBuilds`，然后重新执行命令。也可以在 Web 的**插件**页面点击**允许这些脚本并重试**。
 
-从本地仓库开发：
+`main` 分支要求 DeepSeek Harness 0.2.2-rc.1 或之后的 0.2 版本。从本地仓库开发：
 
 ```sh
 pnpm install && pnpm build

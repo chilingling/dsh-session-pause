@@ -16,7 +16,7 @@ Version 0.4.0 requires DeepSeek Harness 0.2.2-alpha.2 or a later 0.2 release. Fo
 
 pnpm builds the plugin through its `prepare` script during installation, and blocks that script until it is allowed. On the first attempt, add the key pnpm prints under `allowBuilds` in the profile's `pnpm-workspace.yaml` and run the command again; the Web **Plugins** page offers **Allow these scripts and retry** instead.
 
-To develop from a local checkout:
+The `main` branch requires DeepSeek Harness 0.2.2-rc.1 or a later 0.2 release. To develop from a local checkout:
 
 ```sh
 pnpm install && pnpm build
